@@ -41,6 +41,7 @@ body {
   color: #555C62;
   padding: 3em; 
   margin-bottom: 4em;
+  position: relative; /* Added for logo absolute positioning */
 }
 
 .top-section__content {
@@ -59,9 +60,29 @@ body {
   }
 }
 
+/* START LOGO STYLES */
 .logo {
+  /* Default: Hide on small screens where title text takes priority */
   display: none;
 }
+
+@media screen and (min-width: 700px) {
+  /* Show and position logo on large screens */
+  .logo {
+    display: block;
+    position: absolute; /* Position logo absolutely within the top-section */
+    top: 0.2em;
+    left: 3em;
+    width: 250px; /* Set a max width for the logo container */
+    max-width: 30%;
+  }
+}
+
+.logo__image {
+  max-width: 100%; /* Ensure the image scales within its container */
+  height: auto;
+}
+/* END LOGO STYLES */
 
 .title {
   display: flex;
@@ -88,12 +109,20 @@ body {
 @media screen and (min-width: 700px) {
   .title__text {
     font-size: 6em;
+    margin-top: 1.5em; /* Adjusted for logo clearance */
   }
 }
 
 .title__details {
   font-weight: 400;
   font-size: 1.5em;
+}
+
+@media screen and (min-width: 700px) {
+    .title__details {
+        margin-top: 1.5em;
+        margin-left: 20px;
+    }
 }
 
 .title a {
